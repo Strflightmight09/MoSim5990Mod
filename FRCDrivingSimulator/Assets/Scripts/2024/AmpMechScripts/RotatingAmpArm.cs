@@ -56,6 +56,7 @@ public class RotatingAmpArm : MonoBehaviour, IResettable
     {
         if (ringCollisions.isAmping) 
         {
+            ringCollisions.hasRingInRobot = false;
             StartCoroutine(Amp());
             ringCollisions.isAmping = false;
         }
