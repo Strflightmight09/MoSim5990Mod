@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class TriumphClimb : MonoBehaviour, IResettable
 {
     [SerializeField] private ConfigurableJoint climber;
+    [SerializeField] private ConfigurableJoint hooks;
     [SerializeField] private HingeJoint trap;
 
     private TriumphAmpArm ampArm;
@@ -18,6 +19,8 @@ public class TriumphClimb : MonoBehaviour, IResettable
 
     private Vector3 climberStartingPos;
     private Quaternion climberStartingRot;
+    private Vector3 hooksStartingPos;
+    private Quaternion hooksStartingRot;
     private Vector3 trapStartingPos;
     private Quaternion trapStartingRot;
     
@@ -25,6 +28,9 @@ public class TriumphClimb : MonoBehaviour, IResettable
     {
         climberStartingPos = climber.gameObject.transform.localPosition;
         climberStartingRot = climber.gameObject.transform.localRotation;
+
+        hooksStartingPos = hooks.gameObject.transform.localPosition;
+        hooksStartingRot = hooks.gameObject.transform.localRotation;
 
         trapStartingPos = trap.gameObject.transform.localPosition;
         trapStartingRot = trap.gameObject.transform.localRotation;
@@ -52,6 +58,7 @@ public class TriumphClimb : MonoBehaviour, IResettable
     private IEnumerator ClimbSequence() 
     {
         climber.targetPosition = new Vector3(0f, -3.1f, 0f);
+        hooks.targetPosition = new Vector3(0f, -3.9f, 0f);
         JointSpring forksSpring = trap.spring;
         forksSpring.targetPosition = -90f;
         trap.spring = forksSpring;
@@ -62,6 +69,7 @@ public class TriumphClimb : MonoBehaviour, IResettable
     private void HangSequence() 
     {
         climber.targetPosition = new Vector3(0f, 0f, 0f);
+        hooks.targetPosition = new Vector3(0f, 0f, 0f);
     }
 
     public void OnClimb(InputAction.CallbackContext ctx)
@@ -93,10 +101,14 @@ public class TriumphClimb : MonoBehaviour, IResettable
         climber.gameObject.transform.localPosition = climberStartingPos;
         climber.gameObject.transform.localRotation = climberStartingRot;
 
+        hooks.gameObject.transform.localPosition = hooksStartingPos;
+        hooks.gameObject.transform.localRotation = hooksStartingRot;
+
         trap.gameObject.transform.localPosition = trapStartingPos;
         trap.gameObject.transform.localRotation = trapStartingRot;
 
         climber.targetPosition = new Vector3(0f, 0f, 0f);
+        hooks.targetPosition = new Vector3(0f, 0f, 0f);
         
         JointSpring forksSpring = trap.spring;
         forksSpring.targetPosition = 0f;
