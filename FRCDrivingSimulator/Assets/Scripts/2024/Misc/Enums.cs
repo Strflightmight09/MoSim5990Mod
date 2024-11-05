@@ -15,7 +15,8 @@ public enum RobotSettings
     Robotnauts,
     HighTide,
     StealthRobotics,
-    Killshon
+    Killshon,
+    Triumph
 }
 
 public enum SourceMode 
