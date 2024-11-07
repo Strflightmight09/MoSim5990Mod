@@ -15,7 +15,7 @@ public class DriveController : MonoBehaviour, IResettable
     [SerializeField] private float rayCastDistance;
     [SerializeField] private bool flipRayCastDir = false;
 
-    [SerializeField] private bool flipStartingReverse;
+    [SerializeField] public bool flipStartingReverse;
 
     [SerializeField] private Collider field;
 
@@ -36,7 +36,7 @@ public class DriveController : MonoBehaviour, IResettable
     public float rotationSpeed = 15f;
     public bool isRedRobot = false;
     public bool areRobotsTouching;
-    public bool startingReversed = false;
+    private bool startingReversed = false;
 
     public bool is930;
 
@@ -60,6 +60,7 @@ public class DriveController : MonoBehaviour, IResettable
     private Vector3 startingRotation;
     public float intakeValue = 0f;
     private bool ampSpeaker = false;
+    private bool isTriumphInThirdPerson = false;
 
     private bool dontPlayDriveSounds = false;
     private bool useSwerveSounds;
@@ -324,6 +325,9 @@ public class DriveController : MonoBehaviour, IResettable
                 if (isFieldCentric) 
                 {
                     moveDirection = startingDirection * translateValue.y + startingRotation * translateValue.x;
+                    if (isTriumphInThirdPerson) {
+                        moveDirection = -moveDirection;
+                    }
                 }
                 else
                 {
@@ -361,6 +365,10 @@ public class DriveController : MonoBehaviour, IResettable
     {
         redCountDown.Stop();
         blueCountDown.Stop();
+    }
+
+    public void triumphIsInThirdPerson() {
+        isTriumphInThirdPerson = true;
     }
 
     private void PlaySwerveSounds()
