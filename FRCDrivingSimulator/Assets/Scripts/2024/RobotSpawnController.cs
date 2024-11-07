@@ -71,7 +71,7 @@ public class RobotSpawnController : MonoBehaviour
             if (cameraMode == 0)
             {
                 redRobots[redRobot].GetComponent<DriveController>().isFieldCentric = true;
-                redRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
+                redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = true;
             }
             else if (cameraMode == 1)
             {
@@ -79,17 +79,17 @@ public class RobotSpawnController : MonoBehaviour
 
                 if (redRobots[redRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
                 {
-                    redRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
+                    redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = true;
                 }
                 else 
                 {
-                    redRobots[redRobot].GetComponent<DriveController>().startingReversed = false;
+                    redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = false;
                 }
             }
             else if (cameraMode == 2)
             {
                 redRobots[redRobot].GetComponent<DriveController>().isFieldCentric = false;
-                redRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
+                redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = true;
             }
 
             blueRobots[blueRobot].SetActive(true);
@@ -98,24 +98,24 @@ public class RobotSpawnController : MonoBehaviour
             if (cameraMode == 0)
             {
                 blueRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = true;
-                blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
+                blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = true;
             }
             else if (cameraMode == 1) 
             {
                 blueRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = true;
                 if (blueRobots[blueRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
                 {
-                    blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
+                    blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = true;
                 }
                 else 
                 {
-                    blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = false;
+                    blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = false;
                 }
             }
             else if (cameraMode == 2) 
             {
                 blueRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = false;
-                blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = false;
+                blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = false;
             }
             noteHandler.GetRobots();
         }
@@ -139,36 +139,36 @@ public class RobotSpawnController : MonoBehaviour
                 if (cameraMode == 0)
                 {
                     redRobots[redRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    redRobots[redRobot].GetComponent<DriveController>().startingReversed = !redRobots[redRobot].GetComponent<DriveController>().startingReversed;;
+                    redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = !redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse;;
 
                     secondaryRedRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    secondaryRedRobots[blueRobot].GetComponent<DriveController>().startingReversed = !secondaryRedRobots[blueRobot].GetComponent<DriveController>().startingReversed;;
+                    secondaryRedRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = !secondaryRedRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse;;
                 }
                 else if (cameraMode == 1)
                 {
                     redRobots[redRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    redRobots[redRobot].GetComponent<DriveController>().startingReversed = false;
+                    redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = false;
 
                     secondaryRedRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    secondaryRedRobots[blueRobot].GetComponent<DriveController>().startingReversed = false;
+                    secondaryRedRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = false;
 
                     if (redRobots[redRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
                     {
-                        redRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
+                        redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = true;
                     }
 
-                    if (secondaryRedRobots[blueRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
+                    if (secondaryRedRobots[blueRobot].GetComponent<DriveController>().robotType == RobotSettings.Triumph) 
                     {
-                        secondaryRedRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
+                        secondaryRedRobots[blueRobot].GetComponent<DriveController>().triumphIsInThirdPerson();
                     }
                 }
                 else if (cameraMode == 2)
                 {
                     redRobots[redRobot].GetComponent<DriveController>().isFieldCentric = false;
-                    redRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
+                    redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = true;
 
                     secondaryRedRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = false;
-                    secondaryRedRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
+                    secondaryRedRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = true;
                 }
             }
             else 
@@ -187,36 +187,36 @@ public class RobotSpawnController : MonoBehaviour
                 if (cameraMode == 0)
                 {
                     blueRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = !blueRobots[blueRobot].GetComponent<DriveController>().startingReversed;
+                    blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = !blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse;
 
                     secondaryBlueRobots[redRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    secondaryBlueRobots[redRobot].GetComponent<DriveController>().startingReversed = !secondaryBlueRobots[redRobot].GetComponent<DriveController>().startingReversed;;
+                    secondaryBlueRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = !secondaryBlueRobots[redRobot].GetComponent<DriveController>().flipStartingReverse;;
                 }
                 else if (cameraMode == 1)
                 {
                     blueRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = false;
+                    blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = false;
 
                     secondaryBlueRobots[redRobot].GetComponent<DriveController>().isFieldCentric = true;
-                    secondaryBlueRobots[redRobot].GetComponent<DriveController>().startingReversed = false;
+                    secondaryBlueRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = false;
 
                     if (blueRobots[blueRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
                     {
-                        blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
+                        blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = true;
                     }
 
-                    if (secondaryBlueRobots[redRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
+                    if (secondaryBlueRobots[redRobot].GetComponent<DriveController>().robotType == RobotSettings.Triumph) 
                     {
-                        secondaryBlueRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
+                        secondaryBlueRobots[redRobot].GetComponent<DriveController>().triumphIsInThirdPerson();
                     }
                 }
                 else if (cameraMode == 2)
                 {
                     blueRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = false;
-                    blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
+                    blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = true;
 
                     secondaryBlueRobots[redRobot].GetComponent<DriveController>().isFieldCentric = false;
-                    secondaryBlueRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
+                    secondaryBlueRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = true;
                 }
             }
             noteHandler.GetRobots();
@@ -233,7 +233,7 @@ public class RobotSpawnController : MonoBehaviour
 
                 if (cameraMode == 0)
                 {
-                    redRobots[redRobot].GetComponent<DriveController>().startingReversed = !redRobots[redRobot].GetComponent<DriveController>().startingReversed;
+                    redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse = !redRobots[redRobot].GetComponent<DriveController>().flipStartingReverse;
                     redRobots[redRobot].GetComponent<DriveController>().isFieldCentric = true;
                 }
                 else if (cameraMode == 1) 
@@ -254,7 +254,7 @@ public class RobotSpawnController : MonoBehaviour
 
                 if (cameraMode == 0)
                 {
-                    blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = !blueRobots[blueRobot].GetComponent<DriveController>().startingReversed;
+                    blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse = !blueRobots[blueRobot].GetComponent<DriveController>().flipStartingReverse;
                     blueRobots[blueRobot].GetComponent<DriveController>().isFieldCentric = true;
                 }
                 else if (cameraMode == 1) 

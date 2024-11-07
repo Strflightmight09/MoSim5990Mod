@@ -11,10 +11,10 @@ public class ClimbManager : MonoBehaviour
         {
             foreach (DriveController robot in blueRobots)
             {
-                //Only climb for enabled robots that are hightide & citrusciruits (only robot that can climb)
+                //Only check climbing for robots with climbing capabilities
                 if (robot.isActiveAndEnabled)
                 {
-                    if (robot.robotType == RobotSettings.HighTide || robot.robotType == RobotSettings.CitrusCircuits || robot.robotType == RobotSettings.Killshon) 
+                    if (robot.robotType == RobotSettings.HighTide || robot.robotType == RobotSettings.CitrusCircuits || robot.robotType == RobotSettings.Killshon || robot.robotType == RobotSettings.Triumph) 
                     {
                         if (!robot.isTouchingGround && !robot.isClimbed && ChainDetector.isBlueTouchingChain)
                         {
@@ -34,10 +34,10 @@ public class ClimbManager : MonoBehaviour
 
             foreach (DriveController robot in redRobots)
             {
-                //Only climb for enabled robots that are hightide & citrusciruits (only robot that can climb)
+                //Only check climbing for robots with climbing capabilities
                 if (robot.isActiveAndEnabled)
                 {
-                    if (robot.robotType == RobotSettings.HighTide || robot.robotType == RobotSettings.CitrusCircuits || robot.robotType == RobotSettings.Killshon) 
+                    if (robot.robotType == RobotSettings.HighTide || robot.robotType == RobotSettings.CitrusCircuits || robot.robotType == RobotSettings.Killshon || robot.robotType == RobotSettings.Triumph) 
                     {
                         if (!robot.isTouchingGround && !robot.isClimbed && ChainDetector.isRedTouchingChain)
                         {
