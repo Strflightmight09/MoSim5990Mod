@@ -157,8 +157,7 @@ public class RobotSpawnController : MonoBehaviour
                         redRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
                     }
 
-                    if (secondaryRedRobots[blueRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics ||
-                        secondaryRedRobots[blueRobot].GetComponent<DriveController>().robotType == RobotSettings.Triumph) 
+                    if (secondaryRedRobots[blueRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
                     {
                         secondaryRedRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
                     }
@@ -206,8 +205,7 @@ public class RobotSpawnController : MonoBehaviour
                         blueRobots[blueRobot].GetComponent<DriveController>().startingReversed = true;
                     }
 
-                    if (secondaryBlueRobots[redRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics ||
-                        secondaryBlueRobots[redRobot].GetComponent<DriveController>().robotType == RobotSettings.Triumph) 
+                    if (secondaryBlueRobots[redRobot].GetComponent<DriveController>().robotType == RobotSettings.StealthRobotics) 
                     {
                         secondaryBlueRobots[redRobot].GetComponent<DriveController>().startingReversed = true;
                     }
